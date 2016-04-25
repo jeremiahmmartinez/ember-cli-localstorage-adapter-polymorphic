@@ -5,7 +5,19 @@ var ApplicationAdapter = LSAdapter.extend({
   namespace: 'mynamespace',
 
   shouldBackgroundReloadRecord: function (store, snapshot) {
-    return false;
+    var isPolymorphic = false;
+
+    snapshot.eachRelationship(function(name, relationship){
+      if (relationship.options.polymorphic){
+        isPolymorphic = true;
+      }
+    });
+
+    if (isPolymorphic){
+      return false;
+    }
+
+    return true;
   },
 
   findRecord: function(store, type, id, opts) {
