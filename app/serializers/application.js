@@ -1,23 +1,7 @@
 import Ember from 'ember';
 import LSSerializer from 'ember-cli-localstorage-adapter/localstorage-serializer';
-//import LSSerializer from 'ember-localstorage-adapter/serializers/ls-serializer';
 
-var Serializer = LSSerializer.extend(DS.EmbeddedRecordsMixin)
-                       .extend({
-                         attrs: {
-                           // thanks EmbeddedRecordsMixin!
-                           layers: {serialize: 'records', deserialize: 'records'}
-                         }
-                       });
-
-export default Serializer.extend({
-
-    slide: { embedded: 'always' },
-
-    effect: { embedded: 'always' },
-
-    person: {embedded: 'always'},
-
+export default LSSerializer.extend({
     serializeHasMany(snapshot, json, relationship){
       var attr = relationship.key;
       let isPolymorphic = relationship.options.polymorphic;
