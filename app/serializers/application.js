@@ -2,6 +2,9 @@ import Ember from 'ember';
 import LSSerializer from 'ember-cli-localstorage-adapter/localstorage-serializer';
 
 export default LSSerializer.extend({
+    /**
+    * Serializer methods taken from https://github.com/CameronWakal/modtest/blob/master/app/serializers/application.js
+    */
     serializeHasMany(snapshot, json, relationship){
       var attr = relationship.key;
       let isPolymorphic = relationship.options.polymorphic;
