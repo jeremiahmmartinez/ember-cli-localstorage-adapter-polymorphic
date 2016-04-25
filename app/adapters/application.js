@@ -1,10 +1,8 @@
 import DS from 'ember-data';
 import LSAdapter from 'ember-cli-localstorage-adapter/localstorage-adapter';
 
-var namespace = (typeof Drupal.settings.proSlider.adminSettings !== 'undefined') ? Drupal.settings.proSlider.adminSettings.namespace : 'proslider';
-
 var ApplicationAdapter = LSAdapter.extend({
-  namespace: namespace,
+  namespace: 'mynamespace',
 
   shouldBackgroundReloadRecord: function (store, snapshot) {
     return false;
