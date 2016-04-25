@@ -202,5 +202,3 @@ var ApplicationAdapter = LSAdapter.extend({
 });
 
 export default ApplicationAdapter;
-
-//export { default } from 'ember-local-storage/adapters/adapter';
